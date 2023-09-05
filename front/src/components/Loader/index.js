@@ -1,9 +1,14 @@
 /* eslint-disable */
 import ReactDom from 'react-dom';
+import PropTypes from 'prop-types';
 
 import { Overlay } from './styles';
 
-export function Loader() {
+export function Loader({ isLoading }) {
+  if (!isLoading) {
+    return null;
+  }
+
   return ReactDom.createPortal(
     <Overlay>
       <div className="loader" />
@@ -11,3 +16,7 @@ export function Loader() {
     document.getElementById('loader-root')
   );
 }
+
+Loader.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+};
