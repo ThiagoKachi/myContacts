@@ -83,6 +83,10 @@ export function ContactForm({ buttonLabel, onSubmit }) {
     await onSubmit(data);
 
     setIsSubmitting(false);
+    setName('');
+    setEmail('');
+    setPhone('');
+    setCategoryId('');
   }
 
   return (
