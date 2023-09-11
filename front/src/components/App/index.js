@@ -5,9 +5,9 @@ import GlobalStyles from '../../assets/styles/global';
 import defaultTheme from '../../assets/styles/themes/default';
 
 import { Header } from '../Header';
-import Routes from '../../routes';
-
 import ToastContainer from '../Toast/ToastContainer';
+
+import Routes from '../../routes';
 
 import { Container } from './styles';
 
