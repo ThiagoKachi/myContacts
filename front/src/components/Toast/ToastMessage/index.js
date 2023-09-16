@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 import PropsTypes from 'prop-types';
 
 import { Container } from './styles';
@@ -7,7 +7,9 @@ import { Container } from './styles';
 import xCircleIcon from '../../../assets/images/icons/x-circle.svg';
 import checkCircleIcon from '../../../assets/images/icons/check-circle.svg';
 
-export default function ToastMessage({ message, onRemoveMessage }) {
+function ToastMessage({
+  message, onRemoveMessage, isLeaving, animatedRef,
+}) {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       onRemoveMessage(message.id);
@@ -28,6 +30,8 @@ export default function ToastMessage({ message, onRemoveMessage }) {
       onClick={handleRemoveToast}
       tabIndex={0}
       role="button"
+      isLeaving={isLeaving}
+      ref={animatedRef}
     >
       {message.type === 'danger' && <img src={xCircleIcon} alt="Error" />}
       {message.type === 'success' && <img src={checkCircleIcon} alt="Success" />}
@@ -45,4 +49,8 @@ ToastMessage.propTypes = {
     duration: PropsTypes.number,
   }).isRequired,
   onRemoveMessage: PropsTypes.func.isRequired,
+  isLeaving: PropsTypes.bool.isRequired,
+  animatedRef: PropsTypes.shape().isRequired,
 };
+
+export default memo(ToastMessage);
