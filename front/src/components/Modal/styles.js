@@ -33,7 +33,7 @@ export const Overlay = styled.div`
   justify-content: center;
   animation: ${fadeIn} 0.3s ease-in-out;
 
-  ${({ isleaving }) => isleaving && css`animation: ${fadeOut} 0.2s ease-in-out;`}
+  ${({ isleaving }) => isleaving && css`animation: ${fadeOut} 0.2s ease-in-out forwards;`}
 `;
 
 export const Container = styled.div`
@@ -45,7 +45,7 @@ export const Container = styled.div`
   width: 100%;
   animation: ${scaleIn} 0.3s ease-in-out;
 
-  ${({ isleaving }) => isleaving && css`animation: ${scaleOut} 0.2s ease-in-out;`}
+  ${({ isleaving }) => isleaving && css`animation: ${scaleOut} 0.2s ease-in-out forwards;`}
 
   > h1 {
     font-size: 22px;

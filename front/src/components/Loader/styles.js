@@ -23,6 +23,6 @@ export const Overlay = styled.div`
   animation: ${fadeIn} 0.3s ease-in-out;
 
   ${({ isleaving }) => isleaving && css`
-    animation: ${fadeOut} 0.2s ease-in-out;
+    animation: ${fadeOut} 0.2s ease-in-out forwards;
   `}
 `;

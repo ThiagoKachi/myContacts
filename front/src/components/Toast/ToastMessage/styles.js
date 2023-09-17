@@ -34,7 +34,7 @@ export const Container = styled.div`
   animation: ${messageIn} 0.3s ease-in-out;
 
   ${({ isLeaving }) => isLeaving && css`
-    animation: ${messageOut} 0.2s ease-in-out;
+    animation: ${messageOut} 0.2s ease-in-out forwards;
   `}
 
   ${({ type }) => containerVariants[type] || containerVariants.default};
